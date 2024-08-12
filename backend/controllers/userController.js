@@ -30,7 +30,7 @@ const createUser = asyncHandler(async (req, res) => {
     }
 })
 const loginUser = asyncHandler(async(req, res) => {
-    const [email, password] = req.body
+    const {email, password} = req.body
 
     const existingUser = await User.findOne({email});
     if (existingUser) {
@@ -38,12 +38,11 @@ const loginUser = asyncHandler(async(req, res) => {
         if (isPasswordValid) {
             createToken(res, existingUser._id);
 
-            res.status(202).json({
-                _id: existingUser._id,
+            res.status(202).json({_id: existingUser._id,
                 username: existingUser.username,
                 email: existingUser.email,
-                isAdmin: existingUser.isAdmin,
-            });
+                isAdmin: existingUser.isAdmin
+            })
             return;
         }
 
