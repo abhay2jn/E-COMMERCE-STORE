@@ -71,6 +71,7 @@ const Login = () => {
                 type="password"
                 id="password"
                 className="mt-1 p-2 border rounded w-full"
+                autoComplete="on"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
