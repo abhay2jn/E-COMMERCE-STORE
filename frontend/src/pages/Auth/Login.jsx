@@ -32,7 +32,6 @@ const Login = () => {
 
     try {
       const res = await login({ email, password }).unwrap();
-      console.log(res);
       dispatch(setCredientials({ ...res }));
     } catch (error) {
       toast.error(error?.data?.message || error.message);
