@@ -1,6 +1,5 @@
 import { apiSlice } from "./apiSlice";
 import { USERS_URL } from "../constatnts";
-import { data } from "autoprefixer";
 
 export const usersApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
@@ -18,7 +17,7 @@ export const usersApiSlice = apiSlice.injectEndpoints({
       }),
     }),
     register: builder.mutation({
-      query: () => ({
+      query: (data) => ({
         url: `${USERS_URL}`,
         method: "POST",
         body: data,
@@ -26,4 +25,5 @@ export const usersApiSlice = apiSlice.injectEndpoints({
     }),
   }),
 });
-export const { useLoginMutation, useLogoutMutation, useRegisterMutation } = usersApiSlice;
+export const { useLoginMutation, useLogoutMutation, useRegisterMutation } =
+  usersApiSlice;
