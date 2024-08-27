@@ -164,49 +164,47 @@ const Navigation = () => {
               </>
             )}
             <li>
-              <Link
-                to="/admin/profile"
-                className="block px-4 py-2 hover:bg-gray-100"
-              >
+              <Link to="/profile" className="block px-4 py-2 hover:bg-gray-100">
                 Profile
               </Link>
             </li>
             <li>
-              <Link
-                to="/admin/logout"
-                className="block px-4 py-2 hover:bg-gray-100"
+              <button
+                className="block w-full px-4 py-2 text-left hover:bg-gray-100"
                 onClick={logoutHandler}
               >
                 Logout
+              </button>
+            </li>
+          </ul>
+        )}
+        {!userInfo && (
+          <ul>
+            <li>
+              <Link
+                to="/login"
+                className="flex items-center transition-transform transform hover:translate-x-2"
+              >
+                <AiOutlineLogin className="mr-2 mt-[3rem]" size={26} />
+                <span className="hidden nav-item-name mt-[3rem]">
+                  Login
+                </span>{" "}
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/register"
+                className="flex items-center transition-transform transform hover:translate-x-2"
+              >
+                <AiOutlineUserAdd className="mr-2 mt-[3rem]" size={26} />
+                <span className="hidden nav-item-name mt-[3rem]">
+                  Register
+                </span>{" "}
               </Link>
             </li>
           </ul>
         )}
       </div>
-      {!userInfo && (
-        <ul>
-          <li>
-            <Link
-              to="/login"
-              className="flex items-center transition-transform transform hover:translate-x-2"
-            >
-              <AiOutlineLogin className="mr-2 mt-[3rem]" size={26} />
-              <span className="hidden nav-item-name mt-[3rem]">Login</span>{" "}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/register"
-              className="flex items-center transition-transform transform hover:translate-x-2"
-            >
-              <AiOutlineUserAdd className="mr-2 mt-[3rem]" size={26} />
-              <span className="hidden nav-item-name mt-[3rem]">
-                Register
-              </span>{" "}
-            </Link>
-          </li>
-        </ul>
-      )}
     </div>
   );
 };
