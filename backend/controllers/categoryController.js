@@ -50,4 +50,30 @@ const removeCategory = asyncHandler(async (req, res) => {
   }
 });
 
-export { createCategory, updateCategory, removeCategory };
+const listCategory = asyncHandler(async (req, res) => {
+  try {
+    const all = await Category.find({});
+    res.json(all);
+  } catch (error) {
+    console.error(error);
+    res.status(404).json(error.message);
+  }
+});
+
+const readCategory = asyncHandler(async (req, res) => {
+  try {
+    const category = await Category.findOne({ _id: req.params.id });
+    res.json(category);
+  } catch (error) {
+    console.error(error);
+    res.status(404).json(error.message);
+  }
+});
+
+export {
+  createCategory,
+  updateCategory,
+  removeCategory,
+  listCategory,
+  readCategory,
+};
