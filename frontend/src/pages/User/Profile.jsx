@@ -38,7 +38,7 @@ const Profile = () => {
           password,
         }).unwrap();
         dispatch(setCredientials({ ...res }));
-        toast.success("Profile updated successfully")
+        toast.success("Profile updated successfully");
       } catch (error) {
         toast.error(error?.data?.message || error.message);
       }
@@ -78,6 +78,7 @@ const Profile = () => {
               <input
                 type="password"
                 placeholder="Enter your password"
+                autoComplete="on"
                 className=" form-input p-4 rounded-sm w-full"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -88,6 +89,7 @@ const Profile = () => {
               <input
                 type="password"
                 placeholder="confirm password"
+                autoComplete="on"
                 className=" form-input p-4 rounded-sm w-full"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
