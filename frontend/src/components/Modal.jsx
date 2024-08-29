@@ -1,4 +1,4 @@
-const Model = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children }) => {
   return (
     <>
       {isOpen && (
@@ -19,4 +19,4 @@ const Model = ({ isOpen, onClose, children }) => {
   );
 };
 
-export default Model;
+export default Modal;
