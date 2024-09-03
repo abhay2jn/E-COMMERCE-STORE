@@ -10,10 +10,12 @@ import {
 import { useFetchCategoriesQuery } from "../../redux/api/categoryApiSlice";
 import { toast } from "react-toastify";
 
-const AdminProductUpdate = () => {
+const ProductUpdate = () => {
   const params = useParams();
 
   const { data: productData } = useGetProductByIdQuery(params._id);
+
+  console.log(productData);
 
   const [image, setImage] = useState(productData?.image || "");
   const [name, setName] = useState(productData?.name || "");
@@ -57,7 +59,7 @@ const AdminProductUpdate = () => {
       setImage(res.image);
     } catch (error) {
       console.error(error);
-      toast.error("Item added successfully");
+      toast.error(error.message);
     }
   };
 
@@ -74,9 +76,9 @@ const AdminProductUpdate = () => {
       formData.append("brand", brand);
       formData.append("countInStock", stock);
 
-      const data = await updateProduct({ productId: params._id, formData });
+      const { data } = await updateProduct({ productId: params._id, formData });
 
-      if (data.error) {
+      if (data?.error) {
         toast.error(data.error);
       } else {
         toast.success(`Product successfully updated.`);
@@ -239,4 +241,4 @@ const AdminProductUpdate = () => {
   );
 };
 
-export default AdminProductUpdate;
+export default ProductUpdate;
