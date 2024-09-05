@@ -76,7 +76,7 @@ const ProductUpdate = () => {
       formData.append("brand", brand);
       formData.append("countInStock", stock);
 
-      const { data } = await updateProduct({ productId: params._id, formData });
+      const  data  = await updateProduct({ productId: params._id, formData });
 
       if (data?.error) {
         toast.error(data.error);
