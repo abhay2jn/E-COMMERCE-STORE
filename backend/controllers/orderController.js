@@ -29,7 +29,7 @@ const createOrder = async (req, res) => {
     const { orderItems, shippingAddress, paymentMethod } = req.body;
 
     if (orderItems && orderItems.length === 0) {
-      res.status(404);
+      res.status(400); 
       throw new Error("No order items");
     }
 
