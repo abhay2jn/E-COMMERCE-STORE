@@ -8,6 +8,7 @@ import {
 import { toast } from "react-toastify";
 import CategoryForm from "../../components/CategoryForm";
 import Modal from "../../components/Modal";
+import AdminMenu from "./AdminMenu";
 
 const CategoryList = () => {
   const { data: categories } = useFetchCategoriesQuery();
@@ -124,6 +125,9 @@ const CategoryList = () => {
             handleDelete={handleDeleteCategory}
           />
         </Modal>
+      </div>
+      <div className="md:w-1/4 p-3 mt-2">
+        <AdminMenu />
       </div>
     </div>
   );
