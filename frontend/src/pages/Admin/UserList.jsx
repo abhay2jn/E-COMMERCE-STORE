@@ -9,6 +9,7 @@ import {
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Message from "../../components/Message";
+import AdminMenu from "./AdminMenu";
 
 const UserList = () => {
   const { data: users, refetch, isLoading, error } = useGetUsersQuery();
@@ -161,6 +162,9 @@ const UserList = () => {
           </table>
         </div>
       )}
+      <div className="md:w-1/4 p-3 mt-2">
+        <AdminMenu />
+      </div>
     </div>
   );
 };
