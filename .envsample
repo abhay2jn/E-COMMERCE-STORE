@@ -1,0 +1,5 @@
+PORT = 5000
+MONGO_URI="mongodb://e-commerce-store"
+JWT_SECRET="wht"
+NODE_ENV="devet"
+UPI_CLIENT_ID="AfyUoc"
